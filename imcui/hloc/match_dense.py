@@ -55,7 +55,7 @@ confs = {
         },
         "preprocessing": {
             "grayscale": True,
-            "resize_max": 1024,
+            "resize_max": 5000,
             "dfactor": 8,
             "width": 640,
             "height": 480,
@@ -1069,6 +1069,8 @@ def match_images(model, image_0, image_1, conf, device="cpu"):
 
     image0, scale0 = preprocess(image0)
     image1, scale1 = preprocess(image1)
+    height0, width0 = image0.shape[-2:]
+    height1, width1 = image1.shape[-2:]
     image0 = image0.to(device)[None]
     image1 = image1.to(device)[None]
     pred = model({"image0": image0, "image1": image1})
@@ -1153,7 +1155,8 @@ def match_images(model, image_0, image_1, conf, device="cpu"):
         }
     del pred
     torch.cuda.empty_cache()
-    return ret
+    # Ajout : retourne aussi la résolution des images d'entrée (width0, height0, width1, height1)
+    return ret, (width0, height0, width1, height1)
 
 
 @torch.no_grad()
