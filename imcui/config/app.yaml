@@ -56,7 +56,6 @@ matcher_zoo:
       efficiency: medium  # low, medium, high
   minima(loftr):
     matcher: minima_loftr
-    skip_ci: true
     dense: true
     info:
       name: MINIMA(LoFTR) #dispaly name
@@ -77,7 +76,6 @@ matcher_zoo:
       efficiency: low  # low, medium, high
   omniglue:
     enable: true
-    skip_ci: true
     matcher: omniglue
     dense: true
     info:
@@ -103,7 +101,6 @@ matcher_zoo:
   DUSt3R:
     # TODO: duster is under development
     enable: true
-    skip_ci: true
     matcher: duster
     dense: true
     info:
@@ -128,7 +125,7 @@ matcher_zoo:
       efficiency: low  # low, medium, high
   GIM(dkm):
     enable: true
-    skip_ci: true
+    # skip_ci: true
     matcher: gim(dkm)
     dense: true
     info:
@@ -166,7 +163,6 @@ matcher_zoo:
       efficiency: low  # low, medium, high
   loftr:
     matcher: loftr
-    # skip_ci: true
     dense: true
     info:
       name: LoFTR #dispaly name
@@ -178,7 +174,6 @@ matcher_zoo:
   eloftr:
     matcher: eloftr
     dense: true
-    skip_ci: true
     info:
       name: Efficient LoFTR #dispaly name
       source: "CVPR 2024"
@@ -189,7 +184,6 @@ matcher_zoo:
   xoftr:
     matcher: xoftr
     dense: true
-    skip_ci: true
     info:
       name: XoFTR #dispaly name
       source: "CVPR 2024"
@@ -201,7 +195,6 @@ matcher_zoo:
     matcher: jamma
     dense: true
     enable: false
-    skip_ci: true
     info:
       name: Jamma #dispaly name
       source: "CVPR 2024"
@@ -224,7 +217,6 @@ matcher_zoo:
       efficiency: low  # low, medium, high
   topicfm:
     matcher: topicfm
-    skip_ci: true
     dense: true
     info:
       name: TopicFM #dispaly name
@@ -234,7 +226,6 @@ matcher_zoo:
       project: null
       display: true
   aspanformer:
-    skip_ci: true
     matcher: aspanformer
     dense: true
     info:
@@ -246,7 +237,6 @@ matcher_zoo:
       display: true
   xfeat+lightglue:
     enable: true
-    skip_ci: true
     matcher: xfeat_lightglue
     dense: true
     info:
@@ -257,7 +247,6 @@ matcher_zoo:
       project: https://hwjiang1510.github.io/OmniGlue
       display: true
   xfeat(sparse):
-    skip_ci: true
     matcher: NN-mutual
     feature: xfeat
     dense: false
@@ -269,7 +258,6 @@ matcher_zoo:
       project: null
       display: true
   xfeat(dense):
-    skip_ci: true
     matcher: xfeat_dense
     dense: true
     info:
@@ -280,7 +268,6 @@ matcher_zoo:
       project: null
       display: false
   liftfeat(sparse):
-    skip_ci: true
     matcher: NN-mutual
     feature: liftfeat
     dense: false
@@ -292,7 +279,6 @@ matcher_zoo:
       project: null
       display: true
   ripe(+mnn):
-    skip_ci: true
     matcher: NN-mutual
     feature: ripe
     dense: false
@@ -304,7 +290,6 @@ matcher_zoo:
       project: https://fraunhoferhhi.github.io/RIPE
       display: true
   rdd(sparse):
-    skip_ci: true
     matcher: NN-mutual
     feature: rdd
     dense: false
@@ -316,7 +301,6 @@ matcher_zoo:
       project: https://xtcpete.github.io/rdd
       display: true
   rdd(dense):
-    skip_ci: true
     matcher: rdd_dense
     dense: true
     info:
@@ -327,7 +311,6 @@ matcher_zoo:
       project: https://xtcpete.github.io/rdd
       display: true
   dedode:
-    skip_ci: true
     matcher: Dual-Softmax
     feature: dedode
     dense: false
@@ -339,7 +322,6 @@ matcher_zoo:
       project: null
       display: true
   superpoint+superglue:
-    skip_ci: true
     matcher: superglue
     feature: superpoint_max
     dense: false
@@ -351,7 +333,6 @@ matcher_zoo:
       project: null
       display: true
   superpoint+lightglue:
-    skip_ci: true
     matcher: superpoint-lightglue
     feature: superpoint_max
     dense: false
@@ -363,7 +344,6 @@ matcher_zoo:
       project: null
       display: true
   disk:
-    skip_ci: true
     matcher: NN-mutual
     feature: disk
     dense: false
@@ -375,7 +355,6 @@ matcher_zoo:
       project: null
       display: true
   disk+dualsoftmax:
-    skip_ci: true
     matcher: Dual-Softmax
     feature: disk
     dense: false
@@ -387,7 +366,6 @@ matcher_zoo:
       project: null
       display: false
   superpoint+dualsoftmax:
-    skip_ci: true 
     matcher: Dual-Softmax
     feature: superpoint_max
     dense: false
@@ -399,7 +377,6 @@ matcher_zoo:
       project: null
       display: false
   sift+lightglue:
-    skip_ci: true
     matcher: sift-lightglue
     feature: sift
     dense: false
@@ -411,7 +388,6 @@ matcher_zoo:
       project: null
       display: true
   disk+lightglue:
-    skip_ci: true
     matcher: disk-lightglue
     feature: disk
     dense: false
@@ -426,7 +402,6 @@ matcher_zoo:
     matcher: aliked-lightglue
     feature: aliked-n16
     dense: false
-    skip_ci: true
     info:
       name: ALIKED
       source: "ICCV 2023"
@@ -435,7 +410,6 @@ matcher_zoo:
       project: null
       display: true
   superpoint+mnn:
-    skip_ci: true
     matcher: NN-mutual
     feature: superpoint_max
     dense: false
@@ -447,7 +421,6 @@ matcher_zoo:
       project: null
       display: true
   sift+sgmnet:
-    skip_ci: true
     matcher: sgmnet
     feature: sift
     dense: false
@@ -459,7 +432,6 @@ matcher_zoo:
       project: null
       display: true
   sosnet:
-    skip_ci: true
     matcher: NN-mutual
     feature: sosnet
     dense: false
@@ -471,7 +443,6 @@ matcher_zoo:
       project: https://research.scape.io/sosnet
       display: true
   hardnet:
-    skip_ci: true
     matcher: NN-mutual
     feature: hardnet
     dense: false
@@ -483,7 +454,6 @@ matcher_zoo:
       project: null
       display: true
   d2net:
-    skip_ci: true
     matcher: NN-mutual
     feature: d2net-ss
     dense: false
@@ -495,7 +465,6 @@ matcher_zoo:
       project: https://dusmanu.com/publications/d2-net.html
       display: true
   rord:
-    skip_ci: true
     matcher: NN-mutual
     feature: rord
     dense: false
@@ -507,7 +476,6 @@ matcher_zoo:
       project: https://uditsinghparihar.github.io/RoRD
       display: true
   alike:
-    skip_ci: true
     matcher: NN-mutual
     feature: alike
     dense: false
@@ -519,7 +487,6 @@ matcher_zoo:
       project: null
       display: true
   lanet:
-    skip_ci: true
     matcher: NN-mutual
     feature: lanet
     dense: false
@@ -531,7 +498,6 @@ matcher_zoo:
       project: null
       display: true
   r2d2:
-    skip_ci: true
     matcher: NN-mutual
     feature: r2d2
     dense: false
@@ -543,7 +509,6 @@ matcher_zoo:
       project: null
       display: true
   darkfeat:
-    skip_ci: true
     matcher: NN-mutual
     feature: darkfeat
     dense: false
@@ -555,7 +520,6 @@ matcher_zoo:
       project: null
       display: true
   sift:
-    skip_ci: true
     matcher: NN-mutual
     feature: sift
     dense: false
@@ -567,7 +531,6 @@ matcher_zoo:
       project: null
       display: true
   gluestick:
-    skip_ci: true
     enable: true
     matcher: gluestick
     dense: true
@@ -579,7 +542,6 @@ matcher_zoo:
       project: https://iago-suarez.com/gluestick
       display: true
   sold2:
-    skip_ci: true
     enable: false
     matcher: sold2
     dense: true
@@ -592,7 +554,6 @@ matcher_zoo:
       display: true
 
   sfd2+imp:
-    skip_ci: true
     enable: true
     matcher: imp
     feature: sfd2
@@ -606,7 +567,6 @@ matcher_zoo:
       display: true
 
   sfd2+mnn:
-    skip_ci: true
     enable: true
     matcher: NN-mutual
     feature: sfd2

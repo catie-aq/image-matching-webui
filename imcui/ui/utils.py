@@ -844,6 +844,7 @@ def run_matching(
     image_width: int = 640,
     image_height: int = 480,
     use_cached_model: bool = True,
+    dfactor: int = None
 ) -> Tuple[
     np.ndarray,
     np.ndarray,
@@ -899,9 +900,18 @@ def run_matching(
     t0 = time.time()
     model = matcher_zoo[key]
     match_conf = model["matcher"]
+    if dfactor:
+        match_conf["preprocessing"]["dfactor"] = dfactor
+    match_conf["preprocessing"]["force_resize"] = force_resize
+    if force_resize:
+        match_conf["preprocessing"]["width"] = image_width
+        match_conf["preprocessing"]["height"] = image_height
+        
     # update match config
     match_conf["model"]["match_threshold"] = match_threshold
     match_conf["model"]["max_keypoints"] = extract_max_keypoints
+ 
+
     cache_key = "{}_{}".format(key, match_conf["model"]["name"])
 
     efficiency = model["info"].get("efficiency", "high")
@@ -927,16 +937,7 @@ def run_matching(
     )
 
     if model["dense"]:
-        if not match_conf["preprocessing"].get("force_resize", False):
-            match_conf["preprocessing"]["force_resize"] = force_resize
-        else:
-            logger.info("preprocessing is already resized")
-        if force_resize:
-            match_conf["preprocessing"]["height"] = image_height
-            match_conf["preprocessing"]["width"] = image_width
-            logger.info(f"Force resize to {image_width}x{image_height}")
-
-        pred = match_dense.match_images(
+        pred, (width0, height0, width1, height1) = match_dense.match_images(
             matcher, image0, image1, match_conf["preprocessing"], device=DEVICE
         )
         del matcher
@@ -974,8 +975,16 @@ def run_matching(
         pred1 = extract_features.extract(
             extractor, image1, extract_conf["preprocessing"]
         )
+        # Correction ici : match_features.match_images ne retourne qu'un seul objet
         pred = match_features.match_images(matcher, pred0, pred1)
+        # On récupère les tailles à partir des images d'entrée
+        #TODO Si features, récupérer size dans pred0 et pred1 à la place de :
+        width0, height0 = tuple(pred0["size"])
+        width1, height1 = tuple(pred1["size"])
+        # width0, height0 = image0.shape[1], image0.shape[0]
+        # width1, height1 = image1.shape[1], image1.shape[0]
         del extractor
+
     # gr.Info(
     #     f"Matching images done using: {time.time()-t1:.3f}s",
     # )
@@ -1085,6 +1094,10 @@ def run_matching(
         output_wrapped,
         state_cache,
         tmp_state_cache,
+        width0,
+        height0,
+        width1,
+        height1
     )
 
 

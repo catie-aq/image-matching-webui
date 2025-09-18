@@ -35,7 +35,7 @@ confs = {
         },
         "preprocessing": {
             "grayscale": True,
-            "resize_max": 1024,
+            "resize_max": 5000,
             "dfactor": 8,
             "width": 640,
             "height": 480,
